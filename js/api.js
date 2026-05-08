@@ -11,3 +11,15 @@ export async function getProducts() {
 
     return result.data;
 }
+
+export async function getProductById(id) {
+    const response = await fetch(`${API_BASE}/online-shop/${id}`);
+
+    if(!response.ok) {
+        throw new Error("Could not fetch product");
+    }
+
+    const result = await response.json();
+
+    return result.data;
+}
