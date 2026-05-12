@@ -200,3 +200,32 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.cart-section {
+    padding: var(--space-xl) 0;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-m);
+    background-color: var(--color-main);
+    padding: var(--space-m);
+    border-radius: var(--radius-m);
+    margin-bottom: var(--space-m);
+}
+
+.cart-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.cart-summary {
+    margin-top: var(--space-l);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
