@@ -1,6 +1,8 @@
 import { getProductById } from "./api.js";
 import { addToCart } from "./storage.js";
 
+const token = localStorage.getItem("token");
+
 let currentProduct = null;
 
 const productDetail = document.getElementById("productDetail");
@@ -29,9 +31,13 @@ function createProductDetail(product) {
 
             <p>Rating: ${product.rating}</p>
 
-            <button class="button" id="addToCartButton">
-                Add to cart
-            </button>
+            ${
+                token?`
+                    <button class="button" id="addToCartButton">
+                        Add to cart
+                    </button`
+                    :`<p>Please <a href="/account/login.html">log in</a> to your account to add items to cart.</p>`
+            }
 
             <button class="share-button" id="shareButton">
                 Share product
@@ -53,10 +59,12 @@ async function displayProduct() {
 
         const addToCartButton = document.getElementById("addToCartButton");
 
-        addToCartButton.addEventListener("click", function () {
-            addToCart(currentProduct);
-            alert("Product added to cart");
-    });
+        if (addToCartButton) {
+            addToCartButton.addEventListener("click", function() {
+                addToCart(currentProduct);
+                alert("Product added to cart");
+            });
+        }
     } catch (error) {
         productDetail.innerHTML = "<p>Something went wrong loading the product.</p>";
         console.error(error);
