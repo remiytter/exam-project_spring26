@@ -62,7 +62,14 @@ async function displayProduct() {
         if (addToCartButton) {
             addToCartButton.addEventListener("click", function() {
                 addToCart(currentProduct);
-                alert("Product added to cart");
+                
+                const cartMessage = document.getElementById("cartMessage");
+
+                cartMessage.textContent = "Product added to cart.";
+
+                setTimeout(function () {
+                    cartMessage.textContent = "";
+                }, 2000);
             });
         }
     } catch (error) {

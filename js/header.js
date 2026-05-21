@@ -19,7 +19,7 @@ function renderHeaderActions() {
         headerActions.innerHTML = `
             <a href="/cart/index.html">Cart</a>
 
-            <span>Hello, ${user.name}</span>
+            <span class="user-greeting">Hello, ${user.name}</span>
 
             <button id="logoutButton">
                 Logout
