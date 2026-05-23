@@ -31,17 +31,36 @@ function createProductDetail(product) {
 
             <p>Rating: ${product.rating}</p>
 
+            <div class="product-reviews">
+                <h2>Reviews</h2>
+
+                ${
+                    product.reviews.length > 0
+                        ? product.reviews.map((review) => {
+                            return `
+                                <div class="review">
+                                    <p>${review.description}</p>
+                                    <p>Rating: ${review.rating}</p>
+                                    <p>By: ${review.username}</p>
+                                </div>
+                            `;
+                        }).join("")
+                        : "<p>No reviews yet.</p>"
+                }
+            </div>
             ${
                 token?`
                     <button class="button" id="addToCartButton">
                         Add to cart
-                    </button`
+                    </button>`
                     :`<p>Please <a href="/account/login.html">log in</a> to your account to add items to cart.</p>`
             }
 
-            <button class="share-button" id="shareButton">
-                Share product
+            <button class="share-button" id="shareButton" aria-label="Share product">
+                🔗 Share
             </button>
+
+            <p id="shareMessage" class="share-message" role="status"></p>
         </div>
         `;
 }
@@ -72,6 +91,24 @@ async function displayProduct() {
                 }, 2000);
             });
         }
+
+        const shareButton = document.getElementById("shareButton");
+        const shareMessage = document.getElementById("shareMessage");
+
+        shareButton.addEventListener("click", async function () {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+
+                shareMessage.textContent = "Link copied to clipboard";
+
+                setTimeout(function () {
+                    shareMessage.textContent = "";
+                }, 2000);
+            } catch (error) {
+                shareMessage.textContent = "Could not copy link.";
+            }
+        });
+
     } catch (error) {
         productDetail.innerHTML = "<p>Something went wrong loading the product.</p>";
         console.error(error);

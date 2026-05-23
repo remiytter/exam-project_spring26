@@ -12,6 +12,8 @@ function displayCart() {
         cartItems.innerHTML = "<p>Your cart is empty.</p>";
         cartTotal.textContent = "0 kr";
         checkoutButton.classList.add("disabled");
+        checkoutButton.textContent = "Cart is empty";
+        clearCartButton.style.display = "none";
         return;
     }
 
@@ -24,7 +26,7 @@ function displayCart() {
 
                 <div>
                     <h2>${item.title}</h2>
-                    <p>${item.price}</p>
+                    <p>${item.price} kr</p>
                     <p>Quantity: ${item.quantity}</p>
 
                     <button class="decrease-button" data-id="${item.id}">-</button>

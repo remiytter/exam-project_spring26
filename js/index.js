@@ -45,22 +45,29 @@ async function displayProducts() {
             .join("");
     } catch (error) {
         productGrid.innerHTML = `<p>Something went wrong loading products.</p>`;
+        carouselSlide.innerHTML =`<p>Something went wrong loading featured products.</p>`;
+        console.error(error);
     }
 }
 
 function displayCarouselProduct() {
+    if (carouselProducts.length === 0) {
+        carouselSlide.innerHTML = "<p>No featured products found.</p>";
+        return;
+    }
+
     const product = carouselProducts[currentSlideIndex];
 
     carouselSlide.innerHTML = `
-    <img src="${product.image.url}" alt="${product.image.alt || product.title}">
+        <img src="${product.image.url}" alt="${product.image.alt || product.title}">
 
-    <div class="carousel-content">
-        <h1>${product.title}</h1>
-        <p>${product.discountedPrice} kr</p>
-        <a href="/product/index.html?id=${product.id}" class="button">
-            View product
-        </a>
-    </div>
+        <div class="carousel-content">
+            <h1>${product.title}</h1>
+            <p>${product.discountedPrice} kr</p>
+            <a href="/product/index.html?id=${product.id}" class="button">
+                View product
+            </a>
+        </div>
     `;
 }
 

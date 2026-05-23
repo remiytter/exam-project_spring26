@@ -1,5 +1,9 @@
 import { loginUser } from "./api.js";
 
+if (localStorage.getItem("token")) {
+    window.location.href = "/index.html";
+}
+
 const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("loginMessage");
 

@@ -14,7 +14,7 @@ export function addToCart(product) {
     const existingProduct = cart.find((item) => item.id === product.id);
 
     if (existingProduct) {
-        existingProduct.quantity00;
+        existingProduct.quantity++;
     } else {
         cart.push({
             id: product.id,

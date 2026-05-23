@@ -14,15 +14,21 @@
         <div class="container header-content">
             <a href="/index.html" class="logo">BRAND</a>
 
-            <nav class="main-nav">
-                <a href="#">New arrivals</a>
-                <a href="#">Men</a>
-                <a href="#">Women</a>
-                <a href="#">Accessories</a>
-                <a href="#">Sale</a>
-            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                ☰
+            </button>
 
-            <div class="header-actions" id="headerActions"></div>
+            <div class="mobile-menu" id="mobileMenu">
+                <nav class="main-nav">
+                    <a href="#">New arrivals</a>
+                    <a href="#">Men</a>
+                    <a href="#">Women</a>
+                    <a href="#">Accessories</a>
+                    <a href="#">Sale</a>
+                </nav>
+
+                <div class="header-actions" id="headerActions"></div>
+            </div>
         </div>
     </header>
 
@@ -31,15 +37,15 @@
             <div class="container">
 
                 <div class="carousel">
-                    <button class="carousel-button" id="prevButton">Prev</button>
-
-                    <div class="carousel-slider">
-
-                        <div class="carousel-slide" id="carouselSlide">
-                            
-                        </div>
+                    <div class="carousel-slide" id="carouselSlide">
                     </div>
-                    <button class="carousel-button" id="nextButton">Next</button>
+
+                    <div class="carousel-controls">
+                        <button class="carousel-button" id="prevButton">Prev</button>
+
+                        <button class="carousel-button" id="nextButton">Next</button>
+                    </div>
+                </div>
 
             </div>
         </section>
