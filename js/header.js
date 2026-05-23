@@ -3,15 +3,11 @@ const headerActions = document.getElementById("headerActions");
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
 
-const isInSubFolder = window.location.pathname.split("/").length > 2;
-
-const base = isInSubFolder ? "../" : "";
-
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    window.location.href = `${base}index.html`;
+    window.location.href = "/index.html";
 }
 
 function renderHeaderActions() {
@@ -21,7 +17,7 @@ function renderHeaderActions() {
 
     if (token && user) {
         headerActions.innerHTML = `
-            <a href="${base}cart/index.html">Cart</a>
+            <a href="/cart/index.html">Cart</a>
 
             <span class="user-greeting">
                 Hello, ${user.name}
@@ -33,14 +29,13 @@ function renderHeaderActions() {
         `;
 
         const logoutButton = document.getElementById("logoutButton");
-
         logoutButton.addEventListener("click", logout);
 
     } else {
         headerActions.innerHTML = `
-            <a href="${base}cart/index.html">Cart</a>
+            <a href="/cart/index.html">Cart</a>
 
-            <a href="${base}account/login.html">
+            <a href="/account/login.html">
                 Login
             </a>
         `;
