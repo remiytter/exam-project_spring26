@@ -24,7 +24,7 @@ registerForm.addEventListener("submit", async function (event) {
             password: password,
         });
 
-        registerMessage.textContent = "Account created. You can now log in.";
+        registerMessage.textContent = "Account created. You can now <a href="account/login.html">log in</a>.";
         registerForm.reset();
     } catch (error) {
         registerMessage.textContent = error.message;

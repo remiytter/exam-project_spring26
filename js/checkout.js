@@ -22,5 +22,5 @@ checkoutForm.addEventListener("submit", function(event) {
 
     saveCart([]);
 
-    window.location.href = "/success/index.html";
+    window.location.href = "../success/index.html";
 });

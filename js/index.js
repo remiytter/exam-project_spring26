@@ -12,7 +12,7 @@ function createProductCard(product) {
     const hasDiscount = product.price !== product.discountedPrice;
     
     return `
-      <a href="/product/index.html?id=${product.id}" class="product-card">
+      <a href="product/index.html?id=${product.id}" class="product-card">
       <img src="${product.image.url}" alt="${product.image.alt || product.title}">
       
       <div class="product-card-content">
@@ -64,7 +64,7 @@ function displayCarouselProduct() {
         <div class="carousel-content">
             <h1>${product.title}</h1>
             <p>${product.discountedPrice} kr</p>
-            <a href="/product/index.html?id=${product.id}" class="button">
+            <a href="product/index.html?id=${product.id}" class="button">
                 View product
             </a>
         </div>

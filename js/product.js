@@ -53,7 +53,7 @@ function createProductDetail(product) {
                     <button class="button" id="addToCartButton">
                         Add to cart
                     </button>`
-                    :`<p>Please <a href="/account/login.html">log in</a> to your account to add items to cart.</p>`
+                    :`<p>Please <a href="..account/login.html">log in</a> to your account to add items to cart.</p>`
             }
 
             <button class="share-button" id="shareButton" aria-label="Share product">

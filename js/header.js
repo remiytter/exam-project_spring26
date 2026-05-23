@@ -17,7 +17,7 @@ function renderHeaderActions() {
 
     if (token && user) {
         headerActions.innerHTML = `
-            <a href="/cart/index.html">Cart</a>
+            <a href="../cart/index.html">Cart</a>
 
             <span class="user-greeting">Hello, ${user.name}</span>
 
@@ -32,8 +32,8 @@ function renderHeaderActions() {
 
     } else {
         headerActions.innerHTML = `
-            <a href="/cart/index.html">Cart</a>
-            <a href="/account/login.html">Login</a>
+            <a href="../cart/index.html">Cart</a>
+            <a href="../account/login.html">Login</a>
         `;
     }
 }
