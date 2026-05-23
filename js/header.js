@@ -3,11 +3,9 @@ const headerActions = document.getElementById("headerActions");
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
 
-const isRoot =
-    window.location.pathname.endsWith("/") ||
-    window.location.pathname.endsWith("index.html");
+const isInSubFolder = window.location.pathname.split("/").length > 2;
 
-const base = isRoot ? "" : "../";
+const base = isInSubFolder ? "../" : "";
 
 function logout() {
     localStorage.removeItem("token");
