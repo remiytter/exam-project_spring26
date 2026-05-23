@@ -26,7 +26,7 @@ loginForm.addEventListener("submit", async function (event) {
 
         loginMessage.textContent = "You are now logged in.";
 
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     } catch (error) {
         loginMessage.textContent = error.message;
     }
