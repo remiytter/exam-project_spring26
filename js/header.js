@@ -2,12 +2,13 @@ const headerActions = document.getElementById("headerActions");
 
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
+const BASE_PATH = "/exam-project_spring26"
 
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    window.location.href = "/index.html";
+    window.location.href = `${BASE_PATH}/index.html`;
 }
 
 function renderHeaderActions() {
@@ -17,7 +18,7 @@ function renderHeaderActions() {
 
     if (token && user) {
         headerActions.innerHTML = `
-            <a href="/cart/index.html">Cart</a>
+            <a href="${BASE_PATH}/cart/index.html">Cart</a>
 
             <span class="user-greeting">
                 Hello, ${user.name}
@@ -33,9 +34,9 @@ function renderHeaderActions() {
 
     } else {
         headerActions.innerHTML = `
-            <a href="/cart/index.html">Cart</a>
+            <a href="${BASE_PATH}/cart/index.html">Cart</a>
 
-            <a href="/account/login.html">
+            <a href="${BASE_PATH}/account/login.html">
                 Login
             </a>
         `;
