@@ -47,7 +47,7 @@ body {
 }
 
 .user-greeting {
-    color: var(--color-muted);
+    color: var(--color-text);
     font-size: var(--text-small);
     font-weight: 500;
 }
