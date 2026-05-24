@@ -2,7 +2,7 @@ const headerActions = document.getElementById("headerActions");
 
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
-const BASE_PATH = "/exam-project_spring26"
+const BASE_PATH = "/exam-project-1"
 
 function logout() {
     localStorage.removeItem("token");
